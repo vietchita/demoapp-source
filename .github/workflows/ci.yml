@@ -43,7 +43,7 @@ jobs:
       run: |
         pwd
         ls -lrt
-        cd feb-app-config
+        cd gitops-repo
         sed -i 's|image: .*|image: '"${{ secrets.DOCKER_USERNAME }}/demo-app:${{github.run_number}}"'|g' app-demo-value.yaml
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
