@@ -43,8 +43,9 @@ jobs:
       run: |
         pwd
         ls -lrt
-        cd gitops-repo
-        sed -i 's|image: .*|image: '"${{ secrets.DOCKER_USERNAME }}/demo-app:${{github.run_number}}"'|g' app-demo-value.yaml
+        cd gitops-repo 
+        sed -i 's|  repository: .*|  repository: '"${{ secrets.DOCKER_USERNAME }}/demo-app"'|g' app-demo-value.yaml
+        sed -i 's|  tag: .*|  tag: '"${{github.run_number}}"'|g' app-demo-value.yaml
         echo "#" >> app-demo-value.yaml
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
