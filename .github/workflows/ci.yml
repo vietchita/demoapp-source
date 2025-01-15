@@ -43,7 +43,7 @@ jobs:
       run: |
         pwd
         ls -lrt
-        cd demoapp-config 
+        cd gitops-repo 
         sed -i 's|  repository: .*|  repository: '"${{ secrets.DOCKER_USERNAME }}/demo-app"'|g' app-demo-value.yaml
         sed -i 's|  tag: .*|  tag: '"${{github.run_number}}"'|g' app-demo-value.yaml
         echo "#" >> app-demo-value.yaml
