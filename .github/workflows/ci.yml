@@ -35,7 +35,7 @@ jobs:
     - name: Checkout gitops repo
       uses: actions/checkout@v2
       with:
-        repository: rockman88v/feb-app-config
+        repository: vietchita/demoapp-config
         token: ${{ secrets.GITOPS_TOKEN }}
         path: gitops-repo
 
@@ -43,7 +43,7 @@ jobs:
       run: |
         pwd
         ls -lrt
-        cd gitops-repo 
+        cd demoapp-config 
         sed -i 's|  repository: .*|  repository: '"${{ secrets.DOCKER_USERNAME }}/demo-app"'|g' app-demo-value.yaml
         sed -i 's|  tag: .*|  tag: '"${{github.run_number}}"'|g' app-demo-value.yaml
         echo "#" >> app-demo-value.yaml
